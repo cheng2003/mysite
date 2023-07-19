@@ -13,10 +13,7 @@ def get_cpu_times():
 
 def get_cpu_count():
     cpu_count = psutil.cpu_count()
-    cpu_count_info = {
-        "cpu_count":cpu_count,
-    }
-    return cpu_count_info
+    return cpu_count
 
 def get_virtual_memory():
     virtual_memory = psutil.virtual_memory()
@@ -28,3 +25,19 @@ def get_virtual_memory():
         "free":virtual_memory.free,
     }
     return virtual_memory_info
+
+def get_swap_memory():
+    swap_memory = psutil.swap_memory()
+    swap_memory_info = {
+        "total":swap_memory.total,
+        "used":swap_memory.used,
+        "free":swap_memory.free,
+        "percent":swap_memory.percent,
+        "sin":swap_memory.sin,
+        "sout":swap_memory.sout,
+    }
+    return swap_memory_info
+
+def getloadavg():
+    getloadavg = psutil.getloadavg()
+    return getloadavg

@@ -1,11 +1,27 @@
 from fastapi import FastAPI
 import tools
+import psutil
 
 app = FastAPI()
 @app.get("/cpu_times/")
-async def read_item():
+def read_item():
     return tools.get_cpu_times()
 
+@app.get("/cpu_count/")
+def cpu_count():
+    return tools.get_cpu_count()
+
+@app.get("/virtual_memory/")
+def virtual_memory():
+    return tools.get_virtual_memory()
+
+@app.get("/swap_memory/")
+def swap_memory():
+    return tools.get_swap_memory()
+
+@app.get("/getloadavg/")
+def getloadavg():
+    return tools.getloadavg()
 
 
 
